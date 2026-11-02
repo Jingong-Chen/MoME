@@ -29,10 +29,11 @@ puts them, from one set of weights.
 
 ## Contents
 
-[Why retrieval is different](#why-retrieval-is-different) · [Installation](#installation) ·
-[Quick start](#quick-start) · [How to read the tables](#how-to-read-the-tables) ·
-[Results](#results) · [Forgetting-Rank](#forgetting-rank) ·
-[Reproducing the paper](#reproducing-the-paper) · [Citation](#citation)
+[Why retrieval is different](#why-retrieval-is-different) · [How it works](#how-it-works) ·
+[Installation](#installation) · [Quick start](#quick-start) ·
+[How to read the tables](#how-to-read-the-tables) · [Models](#models) · [Results](#results) ·
+[Forgetting-Rank](#forgetting-rank) · [Reproducing the paper](#reproducing-the-paper) ·
+[Citation](#citation)
 
 ## Why retrieval is different
 
