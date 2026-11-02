@@ -1,0 +1,13 @@
+# Versions this release was tested with. Earlier ones are likely to work; the CUDA build of
+# torch has to match your driver, so install torch from pytorch.org rather than from this file.
+torch>=2.0
+torchvision>=0.15
+timm>=0.9
+yacs>=0.1.8
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.3
+opencv-python>=4.7
+Pillow>=9.0
+matplotlib>=3.7
+tqdm>=4.65

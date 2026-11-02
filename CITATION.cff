@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this code or the released weights, please cite the paper."
+title: "Forget the Data, Keep the Capability: Switchable Unlearning for Retrieval"
+abstract: >-
+  MoME splits one re-identification backbone into core parameters that preserve retrieval and
+  zero-initialized parasitic parameters that carry the full-data knowledge, and trains them under
+  gradient isolation so the core never receives a forget-set gradient. Disabling the branch yields
+  Core, which satisfies a request to delete a person's training data; enabling it yields Full.
+  Honoring a request is a flag flip rather than a retraining run. Forgetting-Rank audits that
+  independence in a trained model.
+authors:
+  - family-names: Chen
+    given-names: Jingong
+    affiliation: "South Dakota State University; Aalto University"
+  - family-names: Gao
+    given-names: Kyle
+    affiliation: "Aalto University"
+  - family-names: Li
+    given-names: Guangyuan
+    affiliation: "Aalto University"
+  - family-names: Pack
+    given-names: Chulwoo
+    affiliation: "South Dakota State University"
+  - family-names: Liu
+    given-names: Sijia
+    affiliation: "Michigan State University"
+  - family-names: Won
+    given-names: Kwanghee
+    affiliation: "South Dakota State University"
+repository-code: "https://github.com/Jingong-Chen/MoME"
+license: MIT
+type: software
+keywords:
+  - machine unlearning
+  - person re-identification
+  - privacy
+  - membership inference
+  - right to be forgotten
+  - image retrieval
