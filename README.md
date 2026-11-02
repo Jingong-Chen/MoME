@@ -10,7 +10,7 @@
 
 <a href="https://huggingface.co/Jingong/MoME"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-ffc107" alt="Hugging Face"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-6c757d" alt="License"></a> <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?logo=python&logoColor=white" alt="Python"></a> <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch&logoColor=white" alt="PyTorch"></a>
 
-<img src="assets/tsne_panel.png" width="94%" alt="Embeddings of deleted identities under the original model, MoME with the branch on, MoME with the branch off, and a model retrained without them">
+<img src="assets/teaser.png" width="100%" alt="Embeddings of the deleted identities under the original model, MoME with the branch on, MoME with the branch off, and a model retrained without them">
 
 </div>
 
@@ -29,15 +29,15 @@ puts them, from one set of weights.
 
 ## Contents
 
-[Why retrieval is different](#why-retrieval-is-different) · [How it works](#how-it-works) ·
+[Retrieval is not classification](#retrieval-is-not-classification) · [The mechanism](#the-mechanism) ·
 [Installation](#installation) · [Quick start](#quick-start) ·
-[How to read the tables](#how-to-read-the-tables) · [Models](#models) · [Results](#results) ·
+[Reading the tables](#reading-the-tables) · [Models](#models) · [Results](#results) ·
 [Forgetting-Rank](#forgetting-rank) · [Reproducing the paper](#reproducing-the-paper) ·
 [Citation](#citation)
 
-## Why retrieval is different
+## Retrieval is not classification
 
-<p align="center"><img src="assets/Motivation.png" width="72%" alt="Forgetting the data and losing the capability coincide in classification but not in retrieval"></p>
+<p align="center"><img src="assets/Motivation.png" width="78%" alt="Forgetting the data and losing the capability coincide in classification but not in retrieval"></p>
 
 In classification, deleting a class and losing the ability to predict it are the same event, so
 accuracy on the forgotten data is the forgetting signal. In retrieval they come apart. A model
@@ -47,16 +47,16 @@ deleted person contributed is embedding geometry the model has to keep using. Pe
 deleted data therefore says nothing about whether the deletion happened, and an unlearning method
 for retrieval has to be measured against a retrained reference rather than against zero.
 
-<p align="center"><img src="assets/motivation_frontier.png" width="62%" alt="Utility and privacy frontier on RegDB"></p>
+<p align="center"><img src="assets/motivation_frontier.png" width="56%" alt="Utility and privacy frontier on RegDB"></p>
 
 Existing methods remove influence after training. They either keep a strong membership signal, or
 drive it past the reference rather than to it, or reach the reference by collapsing retrieval.
 MoME keeps the forget-set gradient out of the core during training instead, so the independence is
 a property of the schedule rather than an approximation made afterwards.
 
-## How it works
+## The mechanism
 
-<p align="center"><img src="assets/framework.png" width="96%" alt="MoME: one backbone, core parameters and a zero-initialized parasitic branch, trained in two isolated steps"></p>
+<p align="center"><img src="assets/framework.png" width="88%" alt="MoME: one backbone, core parameters and a zero-initialized parasitic branch, trained in two isolated steps"></p>
 
 Every normalization layer in the backbone carries a second affine pair, initialized at zero, and a
 boolean decides whether it is added. Training alternates two steps that never touch the same
@@ -113,7 +113,7 @@ python train_mome_v3.py --config_file configs/Market/vit_transreid_stride_mome_v
 [docs/REPRODUCE.md](docs/REPRODUCE.md) gives the full recipe, including the distillation teachers
 and the reference families the attacks are scored against.
 
-## How to read the tables
+## Reading the tables
 
 **The target is the `Retrain` row, not the top of the column.** A method is credible when it lands
 *on* the reference, and a privacy column far *below* the reference is as distinguishable as one far
