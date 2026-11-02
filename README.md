@@ -37,7 +37,7 @@ puts them, from one set of weights.
 
 ## Retrieval is not classification
 
-<p align="center"><img src="assets/Motivation.png" width="78%" alt="Forgetting the data and losing the capability coincide in classification but not in retrieval"></p>
+<p align="center"><img src="assets/Motivation.png" width="72%" alt="Forgetting the data and losing the capability coincide in classification but not in retrieval"></p>
 
 In classification, deleting a class and losing the ability to predict it are the same event, so
 accuracy on the forgotten data is the forgetting signal. In retrieval they come apart. A model
@@ -56,7 +56,7 @@ a property of the schedule rather than an approximation made afterwards.
 
 ## The mechanism
 
-<p align="center"><img src="assets/framework.png" width="88%" alt="MoME: one backbone, core parameters and a zero-initialized parasitic branch, trained in two isolated steps"></p>
+<p align="center"><img src="assets/framework.png" width="92%" alt="MoME: one backbone, core parameters and a zero-initialized parasitic branch, trained in two isolated steps"></p>
 
 Every normalization layer in the backbone carries a second affine pair, initialized at zero, and a
 boolean decides whether it is added. Training alternates two steps that never touch the same
