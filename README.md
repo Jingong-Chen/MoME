@@ -8,7 +8,7 @@
 <sup>1</sup>South Dakota State University &nbsp; <sup>2</sup>Aalto University &nbsp; <sup>3</sup>Michigan State University<br>
 <sup>*</sup>Corresponding author
 
-<a href="https://huggingface.co/Jingong/MoME"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-ffc107" alt="Hugging Face"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-6c757d" alt="License"></a> <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?logo=python&logoColor=white" alt="Python"></a> <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch&logoColor=white" alt="PyTorch"></a>
+<a href="https://arxiv.org/abs/2610.36858"><img src="https://img.shields.io/badge/arXiv-2610.36858-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a> <a href="https://huggingface.co/Jingong/MoME"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-ffc107" alt="Hugging Face"></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-6c757d" alt="License"></a> <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?logo=python&logoColor=white" alt="Python"></a> <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch&logoColor=white" alt="PyTorch"></a>
 
 <img src="assets/teaser.png" width="100%" alt="Embeddings of the deleted identities under the original model, MoME with the branch on, MoME with the branch off, and a model retrained without them">
 
@@ -296,6 +296,7 @@ docs/                     data, reproduction
   title   = {Forget the Data, Keep the Capability: Switchable Unlearning for Retrieval},
   author  = {Chen, Jingong and Gao, Kyle and Li, Guangyuan and Pack, Chulwoo and
              Liu, Sijia and Won, Kwanghee},
+  journal = {arXiv preprint arXiv:2610.36858},
   year    = {2026}
 }
 ```

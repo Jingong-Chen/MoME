@@ -28,6 +28,11 @@ authors:
     given-names: Kwanghee
     affiliation: "South Dakota State University"
 repository-code: "https://github.com/Jingong-Chen/MoME"
+url: "https://arxiv.org/abs/2610.36858"
+identifiers:
+  - type: other
+    value: "arXiv:2610.36858"
+    description: "The paper this code accompanies"
 license: MIT
 type: software
 keywords:
