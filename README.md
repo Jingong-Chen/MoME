@@ -139,11 +139,21 @@ full-data model.
 | Market-1501 | Retrain reference | `market/retrain_s42.pth` | 70.5 | 86.9 |
 | Market-1501 | Original | `market/original.pth` | 88.0 | 94.8 |
 | VeRi-776 | MoME, Core mode | `veri/mome_core.pth` | 42.8 | 69.6 |
+| VeRi-776 | Original | `veri/original.pth` | 82.3 | 97.1 |
 
 These are single checkpoints on deletion split 42, so each reads its own number rather than the
 five-split mean the tables report. Reading `mome_core.pth` with `--mode full` gives the co-trained
 branch; the consolidated payload is the separate file, and the two are what the main tables and
 the ablation report respectively.
+
+The VeRi-776 payload is not a separate download. It is fitted from the released core in thirty
+epochs, which is also how the one in the paper was made:
+
+```bash
+python scripts/full_fit.py --config_file configs/VeRi/vit_transreid_stride_mome_v3.yml \
+  --weight veri/mome_core.pth --orig veri/original.pth \
+  --init svd --epochs 30 --lr 0.004 --out veri/mome_full.pth
+```
 
 All are ViT-B/16 at 256 × 128, deletion split seed 42, `MOME.FORGET_ID_FRAC 0.5`, `MOME.DR_K 4`.
 The Retrain reference is released alongside so the comparison the tables make can be reproduced
