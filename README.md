@@ -53,6 +53,22 @@ drive it past the reference rather than to it, or reach the reference by collaps
 MoME keeps the forget-set gradient out of the core during training instead, so the independence is
 a property of the schedule rather than an approximation made afterwards.
 
+## How it works
+
+<p align="center"><img src="assets/framework.png" width="96%" alt="MoME: one backbone, core parameters and a zero-initialized parasitic branch, trained in two isolated steps"></p>
+
+Every normalization layer in the backbone carries a second affine pair, initialized at zero, and a
+boolean decides whether it is added. Training alternates two steps that never touch the same
+tensor. **Step 1** updates the core on the retain set, with the branch frozen; **Step 2** updates
+the branch on the deleted identities, with the core frozen. The core therefore never receives a
+gradient computed on the forget set, which is the property the paper proves and `Forgetting-Rank`
+audits. The branch is the payload: disabled it is absent, enabled it restores what the deleted data
+taught.
+
+Two knobs choose how much of the backbone carries a branch, `MODEL.PARASITIC_SCOPE` over
+`all | last6 | last3 | head_only`, and which affine it touches, `MODEL.PARASITIC_TYPE` over
+`gamma_beta | gamma_only | beta_only`. The paper's ablation reads both.
+
 ## Installation
 
 ```bash
