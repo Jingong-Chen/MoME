@@ -293,7 +293,7 @@ docs/                     data, reproduction
 
 ```bibtex
 @article{chen2026mome,
-  title   = {Forget the Data, Keep the Capability: Switchable Unlearning for Retrieval},
+  title   = {Forget the Data, Keep the Capability: MoME, Switchable Unlearning for Retrieval},
   author  = {Chen, Jingong and Gao, Kyle and Li, Guangyuan and Pack, Chulwoo and
              Liu, Sijia and Won, Kwanghee},
   journal = {arXiv preprint arXiv:2610.36858},

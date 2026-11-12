@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or the released weights, please cite the paper."
-title: "Forget the Data, Keep the Capability: Switchable Unlearning for Retrieval"
+title: "Forget the Data, Keep the Capability: MoME, Switchable Unlearning for Retrieval"
 abstract: >-
   MoME splits one re-identification backbone into core parameters that preserve retrieval and
   zero-initialized parasitic parameters that carry the full-data knowledge, and trains them under
