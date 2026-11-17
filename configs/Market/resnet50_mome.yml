@@ -50,7 +50,7 @@ MOME:
   ENABLED: True
   DR_SAMPLES_PER_ID: 4
 
-OUTPUT_DIR: './logs/rebuttal_resnet_mome/'
+OUTPUT_DIR: './logs/resnet_mome/'
 
 TEST:
   IMS_PER_BATCH: 128

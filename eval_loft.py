@@ -13,7 +13,7 @@ reference models; a target-only feature projection changes the representation, s
 directly comparable for LOFT and are handled/flagged separately in the paper.
 
 Usage:
-  python eval_loft.py --config_file <cfg> --loft logs/rebuttal_loft_<ds>_seed42/loft_U.pt \\
+  python eval_loft.py --config_file <cfg> --loft logs/loft_<ds>_seed42/loft_U.pt \\
      MODEL.DEVICE_ID "'0'" TEST.WEIGHT <standard_ckpt> DATASETS.ROOT_DIR <data> OUTPUT_DIR <out>
 """
 

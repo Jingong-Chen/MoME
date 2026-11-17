@@ -4,10 +4,6 @@ Two teachers:
   - good_teacher = standard model (frozen, knows D_f)
   - bad_teacher  = randomly initialized model with same architecture (frozen, knows nothing)
 
-Student (init from good_teacher):
-  on D_r:           KL( student || good_teacher )       — preserve retain knowledge
-  on D_f \\ D_r:    KL( student || bad_teacher  )       — forget the rest
-
 Plus optional small CE on D_r for stability (controlled by lambda_ce).
 """
 

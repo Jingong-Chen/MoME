@@ -1,10 +1,10 @@
-"""AGW backbone (Ye TPAMI'21) for ReID — the standard CNN baseline.
+"""AGW backbone (Ye TPAMI'21) for ReID.
 
 AGW = ResNet-50 + Non-local attention + GeM pooling + weighted regularization triplet.
 We implement a clean variant that includes the most-impactful pieces (GeM + IBN + standard
 soft-margin triplet) while keeping the architecture compatible with our existing pipeline.
 
-Used for: rebuttal R3 N7 (additional backbone = standard CNN ReID baseline).
+An additional backbone: a standard CNN ReID baseline.
 """
 
 import torch
@@ -36,7 +36,6 @@ class GeM(nn.Module):
 class NonLocalBlock(nn.Module):
     """Embedded Gaussian non-local block (Wang et al. CVPR'18).
 
-    Lightweight — applied after layer2/layer3 in AGW to capture long-range spatial deps.
     """
     def __init__(self, in_channels):
         super().__init__()

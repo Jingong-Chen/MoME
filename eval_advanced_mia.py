@@ -1,6 +1,6 @@
 """Advanced MIA suite: RMIA + Offline U-LiRA + ECE + TPR@low-FPR.
 
-Responds to Reviewer Kd9X K3-K4 (Carlini 2022, Pawelczyk 2025, RMIA, Deep Unlearning 2026).
+Implements Carlini 2022, Pawelczyk 2025, RMIA and Deep Unlearning 2026.
 
 For each target checkpoint, computes:
   - per-sample loss on D_f (member) and query set (non-member)

@@ -10,7 +10,7 @@ Post-hoc, no training. Steps:
 Usage:
   python unlearn_ssd.py --config_file configs/Market/vit_transreid_stride_mome_v3.yml \\
     TEST.WEIGHT logs/market_standard_baseline/transformer_120.pth \\
-    OUTPUT_DIR logs/rebuttal_ssd_seed42 \\
+    OUTPUT_DIR logs/ssd_seed42 \\
     SOLVER.SEED 42
 """
 

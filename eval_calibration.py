@@ -1,9 +1,9 @@
-"""ECE / Reliability diagrams (responds to Reviewer Kd9X K3, Nm86 'absolute' privacy).
+"""ECE / Reliability diagrams.
 
 Given a checkpoint, computes:
   - top-1 accuracy on test query (ReID retrieval is rank-1 in the gallery, but here we
     use the closed-set classifier head on training PIDs, so accuracy is effectively a
-    PID-prediction accuracy on the test set — a proxy for confidence calibration).
+    PID-prediction accuracy on the test set).
   - ECE (15 bins).
   - Reliability diagram saved to PNG/PDF.
 
@@ -126,9 +126,8 @@ if __name__ == "__main__":
     ece_train, bins_train = compute_ece(tops, correct)
     plot_reliability(bins_train, ece_train,
                      os.path.join(output_dir, "reliability_member_{}.pdf".format(args.mode)),
-                     title="Members (D_f) — {}".format(args.mode))
+                     title="Members (D_f): {}".format(args.mode))
 
-    # Query (test) set — top-1 over training PIDs (will be 0 acc for new PIDs but probability spread informative)
     tops_q, preds_q, pids_q = collect_top_probs(model, nonmember_loader)
     # For query, "accuracy" is ill-defined (PIDs are different); skip ECE here, only stats.
     res = {

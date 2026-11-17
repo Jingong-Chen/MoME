@@ -61,7 +61,7 @@ core logs/${P}_coreonly MOME.CORE_ONLY True || exit 1
 
 echo "===== split $S : consolidated Full payload ====="
 if [ ! -f logs/${P}_full.pth ]; then
-  X scripts/cvpr2027/full_fit.py --config_file $CFG \
+  X scripts/full_fit.py --config_file $CFG \
     --weight logs/${P}_core_s42/mome_v3_epoch_120.pth --orig $ORIG \
     --init svd --epochs 30 --lr 0.004 --out logs/${P}_full.pth -- \
     "${BASE[@]}" "${SUB[@]}" "${FC[@]}" > "$LOGDIR/${P}_full.log" 2>&1 \
@@ -95,7 +95,7 @@ run munba         munba_final.pth           train_munba.py           0.008 --epo
 run loft          loft_U.pt                 train_loft.py            0.008 --steps 100 --lr 1.0 --weight_decay 0.05 --energy 0.95
 run lora          lora_unlearn_final.pth    train_lora_unlearn.py    0.008 --epochs 20 --rank 4 --alpha 8
 if [ -f logs/${P}_lora/lora_unlearn_final.pth ] && [ ! -f logs/${P}_lora/lora_merged.pth ]; then
-  python -u scripts/rebuttal/merge_and_eval_lora.py --in_ckpt logs/${P}_lora/lora_unlearn_final.pth \
+  python -u scripts/merge_and_eval_lora.py --in_ckpt logs/${P}_lora/lora_unlearn_final.pth \
     --out_ckpt logs/${P}_lora/lora_merged.pth > "$LOGDIR/${P}_lora_merge.log" 2>&1 \
     && echo "[ok] lora merge" || echo "[FAIL] lora merge"
 fi

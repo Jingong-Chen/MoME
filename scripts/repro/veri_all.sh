@@ -77,7 +77,7 @@ core logs/${P}_coreonly MOME.CORE_ONLY True || exit 1
 
 echo "===== split $S : consolidated Full payload ====="
 if [ ! -f logs/${P}_full.pth ]; then
-  python -u scripts/cvpr2027/full_fit.py --config_file $CFG \
+  python -u scripts/full_fit.py --config_file $CFG \
     --weight logs/${P}_core_s42/mome_v3_epoch_40.pth \
     --orig logs/veri776_standard/transformer_120.pth \
     --init svd --epochs 30 --lr 0.004 --out logs/${P}_full.pth -- \

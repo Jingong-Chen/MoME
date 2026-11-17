@@ -49,7 +49,6 @@ class ResNetMoME(nn.Module):
         self.bottleneck.bias.requires_grad_(False)
         self.bottleneck.configure_parasitic(enabled=True, parasitic_type=cfg.MODEL.PARASITIC_TYPE)
 
-        # Classifier (no parasitic — keeps interface consistent with TransReID build).
         self.num_classes = num_classes
         self.classifier = nn.Linear(self.in_planes, self.num_classes, bias=False)
         nn.init.normal_(self.classifier.weight, std=0.001)

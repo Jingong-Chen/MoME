@@ -1,4 +1,4 @@
-"""Skewed retain-set splits (responds to Reviewer Nm86 N2).
+"""Skewed retain-set splits.
 
 Three strategies, all on Market-1501:
   - camera_skew:  D_f\\D_r = all images of camera 1; D_r = the rest (per PID).

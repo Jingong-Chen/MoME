@@ -63,7 +63,7 @@ class TriggeredImageDataset(torch.utils.data.Dataset):
 
 
 class AlwaysTriggeredImageDataset(torch.utils.data.Dataset):
-    """Triggers ALL images regardless of PID — used for query-time eval."""
+    """Triggers ALL images regardless of PID."""
 
     def __init__(self, data, transform=None, trigger_size=TRIGGER_SIZE):
         self.data = data

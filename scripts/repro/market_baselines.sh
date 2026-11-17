@@ -45,7 +45,7 @@ run munba       munba_final.pth        train_munba.py --epochs 10 --lr 0.005 --m
 run loft        loft_U.pt              train_loft.py --steps 100 --lr 1.0 --weight_decay 0.05 --energy 0.95
 run lora        lora_unlearn_final.pth train_lora_unlearn.py --epochs 20 --rank 4 --alpha 8
 if [ -f logs/${P}_lora/lora_unlearn_final.pth ] && [ ! -f logs/${P}_lora/lora_merged.pth ]; then
-  python -u scripts/rebuttal/merge_and_eval_lora.py --in_ckpt logs/${P}_lora/lora_unlearn_final.pth \
+  python -u scripts/merge_and_eval_lora.py --in_ckpt logs/${P}_lora/lora_unlearn_final.pth \
     --out_ckpt logs/${P}_lora/lora_merged.pth > "$LOGDIR/${P}_lora_merge.log" 2>&1 \
     && echo "[ok] lora merge" || echo "[FAIL] lora merge"
 fi

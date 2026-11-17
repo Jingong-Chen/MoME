@@ -1,4 +1,4 @@
-"""AGW + parasitic BN + MoME training (responds to R3 N7).
+"""AGW + parasitic BN + MoME training.
 
 Uses processor_mome_v3.do_train_v3 with our AGW(parasitic=True) model.
 Critical: enable MOME.FREEZE_BN_STEP2 so BN running stats only update from D_r,

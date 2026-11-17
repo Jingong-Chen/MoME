@@ -1,4 +1,4 @@
-"""CIFAR-100 dataloader for the cross-task generality demo (responds to o3UY O4).
+"""CIFAR-100 dataloader for the cross-task generality demo.
 
 10% random forget → D_r = 90%, D_f \\ D_r = 10%.
 Uses torchvision's CIFAR100; downloads to data/cifar100/.

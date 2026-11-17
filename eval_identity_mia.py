@@ -1,4 +1,4 @@
-"""Identity-level MIA (responds to Reviewer Nm86 N3).
+"""Identity-level MIA.
 
 Aggregate per-PID across all images of that identity:
   - mean entropy

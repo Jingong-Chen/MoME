@@ -1,7 +1,6 @@
-"""ResNet-50 + parasitic BN MoME training (responds to o3UY O3 + Nm86 N7).
+"""ResNet-50 + parasitic BN MoME training.
 
-Uses processor_mome_v3.do_train_v3 unchanged — the parasitic isolation pattern is
-backbone-agnostic. The only change is the ResNetMoME model.
+Uses processor_mome_v3.do_train_v3 unchanged. The only change is the ResNetMoME model.
 """
 
 import argparse

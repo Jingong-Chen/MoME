@@ -50,7 +50,7 @@ MOME:
   ENABLED: False
   DR_SAMPLES_PER_ID: 4
 
-OUTPUT_DIR: './logs/rebuttal_agw_standard/'
+OUTPUT_DIR: './logs/agw_standard/'
 
 TEST:
   IMS_PER_BATCH: 128

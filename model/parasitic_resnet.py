@@ -1,6 +1,6 @@
 """ParasiticBatchNorm2d wrapping for ResNet-50 backbone.
 
-Mirrors ParasiticLayerNorm in vit_pytorch.py — adds zero-initialized weight_m, bias_m
+Mirrors ParasiticLayerNorm in vit_pytorch.py. It adds zero-initialized weight_m, bias_m
 parameters and a `parasitic` flag, so the same `set_parasitic_mode` toggling and the
 same `freeze_*_params` partition work on a CNN backbone.
 """

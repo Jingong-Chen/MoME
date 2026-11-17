@@ -61,7 +61,7 @@ def main():
                         "the collector skips existing loss files, so sharing a directory "
                         "silently reuses another protocol's losses.")
     p.add_argument("--mome_tpl", default="logs/mome_v3_seed{seed}/mome_v3_epoch_120.pth")
-    p.add_argument("--oracle_tpl", default="logs/rebuttal_strong_retrain_seed{seed}/transformer_120.pth")
+    p.add_argument("--oracle_tpl", default="logs/strong_retrain_seed{seed}/transformer_120.pth")
     p.add_argument("--original_ckpt", default="logs/market_standard_baseline/transformer_120.pth")
     p.add_argument("opts", nargs=argparse.REMAINDER)
     a = p.parse_args()

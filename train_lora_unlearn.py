@@ -1,4 +1,4 @@
-"""LoRA-style adapter unlearning baseline (responds to Reviewer Kd9X K2 / LoKU reference).
+"""LoRA-style adapter unlearning baseline.
 
 Inserts low-rank adapters into MLP fc1/fc2 of every Transformer block, freezes the
 backbone, and finetunes only the LoRA on D_r. This emulates the "adapter unlearning"
