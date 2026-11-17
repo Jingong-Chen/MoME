@@ -1,5 +1,3 @@
-"""MoME 损失函数定义。"""
-
 import torch
 import torch.nn as nn
 

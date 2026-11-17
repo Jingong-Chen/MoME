@@ -92,9 +92,6 @@ def _normalize_parasitic_type(parasitic_type):
 
 
 class ParasiticLayerNorm(nn.Module):
-    """
-    可切换寄生模式的 LayerNorm。
-    """
     def __init__(self, normalized_shape, eps=1e-6):
         super().__init__()
         self.weight = nn.Parameter(torch.ones(normalized_shape))

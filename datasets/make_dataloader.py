@@ -29,9 +29,6 @@ __factory = {
 }
 
 def train_collate_fn(batch):
-    """
-    # collate_fn这个函数的输入就是一个list，list的长度是一个batch size，list中的每个元素都是__getitem__得到的结果
-    """
     imgs, pids, camids, viewids , _ = zip(*batch)
     pids = torch.tensor(pids, dtype=torch.int64)
     viewids = torch.tensor(viewids, dtype=torch.int64)

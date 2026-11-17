@@ -128,7 +128,6 @@ def do_train_mome(
         loss_dep_meter.reset()
         acc_meter.reset()
 
-        # 4 步 backward：L_dep 不对 para 求梯度（ce_para_dep.detach），每步只保留 1 个 batch + 1 条计算图，峰值显存 ≈ 标准 TransReID
         iter_r = iter(train_loader_r)
         iter_dep = iter(train_loader_df_only)
 
@@ -145,7 +144,7 @@ def do_train_mome(
             acc_val = 0.0
             batch_size = img_f.shape[0]
 
-            # Step 1: Parasitic on D_f → L_para.backward()（仅 1 个 batch 在 GPU）
+            # Step 1: Parasitic on D_f → L_para.backward()
             img_f = img_f.to(device)
             pid_f, cam_f, view_f = pid_f.to(device), cam_f.to(device), view_f.to(device)
             with amp.autocast(enabled=True):
@@ -160,8 +159,7 @@ def do_train_mome(
             acc_val = (score_para_main.max(1)[1] == pid_f).float().mean().item()
             del img_f, score_para, feat_para, ce_para, tri_para, loss_para, score_para_main
 
-            # Step 2: Parasitic on D_f\D_r，只要 ce_para_dep 数值供 Step 4 用，不需求梯度
-            # 用 no_grad 避免构建计算图、不保留中间激活，显存立刻释放
+            # Step 2: Parasitic on D_f\D_r
             img_dep = img_dep.to(device)
             pid_dep, cam_dep, view_dep = pid_dep.to(device), cam_dep.to(device), view_dep.to(device)
             with torch.no_grad():
@@ -172,7 +170,7 @@ def do_train_mome(
             img_dep_cpu = img_dep.cpu()
             del img_dep, score_para_dep
 
-            # Step 3: Clean on D_r → (α * L_clean).backward()（仅 img_r 在 GPU）
+            # Step 3: Clean on D_r → (α * L_clean).backward()
             img_r = img_r.to(device)
             pid_r, cam_r, view_r = pid_r.to(device), cam_r.to(device), view_r.to(device)
             with amp.autocast(enabled=True):
@@ -185,7 +183,7 @@ def do_train_mome(
             loss_clean_val = loss_clean.item()
             del img_r, score_clean, feat_clean, ce_clean, tri_clean, loss_clean
 
-            # Step 4: Clean on D_f\D_r → L_dep(ce_clean_dep, ce_para_dep).backward()（仅 img_dep 在 GPU）
+            # Step 4: Clean on D_f\D_r → L_dep(ce_clean_dep, ce_para_dep).backward()
             img_dep = img_dep_cpu.to(device)
             del img_dep_cpu
             with amp.autocast(enabled=True):

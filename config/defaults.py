@@ -338,7 +338,6 @@ _C.MOME.FREEZE_BN_STEP2 = False
 # the core receives gradient from D_f and the by-construction guarantee no longer holds.
 # This is the row that shows what the isolation buys; never set it for a deployed model.
 _C.MOME.NO_ISOLATION = False
-# 显存优化：True 时用两次 backward，峰值显存约与标准 TransReID 相当（L_dep 不反传到 para）
 _C.MOME.MEMORY_EFFICIENT = False
 
 # ---------------------------------------------------------------------------- #

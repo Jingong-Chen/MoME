@@ -1,17 +1,13 @@
-"""寄生模块工具函数。"""
-
 import torch
 
 
 def set_parasitic_mode(model, mode=True):
-    """设置模型中所有寄生模块（含 LN/BN/Linear 包装层）的运行模式。"""
     for module in model.modules():
         if hasattr(module, "parasitic"):
             module.parasitic = mode
 
 
 def get_parasitic_parameters(model):
-    """返回寄生参数列表 (weight_m, bias_m)。"""
     params = []
     for name, param in model.named_parameters():
         if ("weight_m" in name or "bias_m" in name) and param.requires_grad:
@@ -20,7 +16,6 @@ def get_parasitic_parameters(model):
 
 
 def get_core_ln_parameters(model):
-    """返回核心 LayerNorm 参数列表 (weight, bias)。"""
     params = []
     for name, param in model.named_parameters():
         if ("weight_m" not in name and "bias_m" not in name) and param.requires_grad:
@@ -29,7 +24,6 @@ def get_core_ln_parameters(model):
 
 
 def count_parasitic_parameters(model):
-    """统计寄生参数量并打印占比。"""
     parasitic_params = get_parasitic_parameters(model)
     parasitic_total = sum(p.numel() for p in parasitic_params)
     all_total = sum(p.numel() for p in model.parameters())
@@ -39,7 +33,6 @@ def count_parasitic_parameters(model):
 
 
 def freeze_parasitic_parameters(model, freeze=True, zero_fill=True):
-    """冻结/解冻寄生参数，可用于标准 baseline 训练。"""
     for name, param in model.named_parameters():
         if "weight_m" in name or "bias_m" in name:
             if zero_fill:

@@ -1,5 +1,3 @@
-"""MIA 评估工具。"""
-
 import numpy as np
 import torch
 import torch.nn.functional as F
