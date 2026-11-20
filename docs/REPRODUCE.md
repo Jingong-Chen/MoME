@@ -10,7 +10,7 @@ export MOME_DATA=/path/to/data
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 ```
 
-## What one deletion split costs
+## The cost of one deletion split
 
 A split is not one training run. The retrain reference is a family of five, four of them are the
 core's distillation teachers, and the calibrated attacks are scored against a second family that
@@ -117,3 +117,34 @@ python train_scrub.py            # SCRUB
 Each takes `TEST.WEIGHT` for the model it adapts and writes into `OUTPUT_DIR`. LOFT fits a
 projector; it needs `geoopt` installed, or it silently falls back to Euclidean Adam with a QR
 retraction and the objective moves the other way.
+
+## The reference band
+
+A target row is scored against four references, so for the band to mean the same thing every
+member of the family has to be scored against four others. That needs five members per dataset.
+
+```bash
+bash scripts/repro/xref_band.sh             # the disjoint families and the band, all three sets
+```
+
+The band is what makes a reading of the attacks interpretable: a core whose AUC sits inside it is
+not distinguishable from a model trained without the deleted identities in the first place.
+
+## The further audits
+
+Three readings sit outside the main tables and each has its own entry point.
+
+```bash
+# the attacks read at the sample level rather than per identity
+python eval_mia_partition.py --config_file <cfg> --checkpoint <ckpt> --mode core
+
+# a backdoor planted on the identities that are later deleted, then tested for survival
+python train_with_trigger.py --config_file <cfg> --n_trigger_pids 50 OUTPUT_DIR logs/poisoned_seed42
+python eval_poisoning_audit.py --trigger_pids_file logs/poisoned_seed42/trigger_pids.json \
+    --config_file <cfg> --mode core
+
+# Forgetting-Rank on the AGW ResNet-50 backbone, the non-ViT certificate
+python scripts/collect_lira_agw.py --config_file configs/Market/agw.yml \
+    MODEL.DEVICE_ID "'0'" DATASETS.ROOT_DIR ./data MODEL.PRETRAIN_PATH ./resnet50-0676ba61.pth
+python scripts/compute_rho.py --dir logs/gen2_agw_lira --mome 42,123,456,789,1024
+```

@@ -1,9 +1,9 @@
+#!/usr/bin/env bash
 # Everything Table 2 needs on one RegDB deletion split. RegDB runs through the cross-modality
 # wrapper and its retrains use AdamW, since the SGD schedule used elsewhere does not train at all
 # on the 824 retained images. Hyperparameters are read off the train_log.txt of the deployed runs.
 #
-#   usage: bash repro/splitvar/regdb_all.sh <split_seed>
-#!/usr/bin/env bash
+#   usage: bash scripts/repro/regdb_all.sh <split_seed>
 # Portable form of the script that produced the paper's numbers. It assumes the repository root as
 # the working directory and MOME_DATA pointing at the datasets; everything else is as it was run.
 set -o pipefail

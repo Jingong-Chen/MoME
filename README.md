@@ -282,7 +282,11 @@ train_retrain_baseline.py the reference, retrained on the retain set
 train_*.py, unlearn_ssd.py eleven post-hoc baselines, one file each
 eval_partition.py         retrieval on the test split and on the deleted identities
 eval_advanced_mia.py      entropy-MIA, RMIA and U-LiRA against a reference family
+eval_mia_partition.py     the same attacks read at the sample level
+train_with_trigger.py     a planted backdoor, for the poisoning audit
+eval_poisoning_audit.py   whether the backdoor survives the deletion
 scripts/compute_rho.py    Forgetting-Rank
+scripts/repro/            one split end to end, and the reference band
 utils/parasitic_utils.py  the parasitic parameters and the Core/Full switch
 processor/processor_mome_v3.py  the two-step loop
 configs/                  Market-1501, VeRi-776 and RegDB

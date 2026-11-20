@@ -14,7 +14,7 @@ removed; U is every image of those classes; D_r is everything else. Reported per
   test acc on retained classes, acc on U (lower is more forgotten, the retrain oracle sets the
   reference), and entropy-MIA of U against the test split.
 
-Run: python scripts/cvpr2027/unlearn_bench.py --dataset cifar10 --method retrain --out_dir logs/ub
+Run: python scripts/unlearn_bench.py --dataset cifar10 --method retrain --out_dir logs/ub
 """
 import argparse
 import copy
@@ -32,7 +32,7 @@ import torchvision
 from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader, Subset
 
-ROOT = osp.abspath(osp.join(osp.dirname(__file__), "..", ".."))
+ROOT = osp.abspath(osp.join(osp.dirname(__file__), ".."))
 sys.path.insert(0, ROOT)
 from train_cifar10_r18_mome import (make_resnet18_cifar, replace_bn_with_parasitic,  # noqa: E402
                                     set_parasitic)

@@ -13,7 +13,7 @@ Three member pools, one non-member pool:
 Non-members are the query split. AUC is a within-model rank statistic, so it is comparable
 across models whose classifiers differ in width.
 
-Run: python scripts/cvpr2027/mia_decomp.py --config_file configs/Market/vit_transreid_stride_mome_v3.yml \
+Run: python scripts/mia_decomp.py --config_file configs/Market/vit_transreid_stride_mome_v3.yml \
        --ckpt <path> --tag <name> [--mode core|full] MODEL.DEVICE_ID "'0'" ...
 """
 import argparse
@@ -28,7 +28,7 @@ import torch.nn.functional as F
 from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader
 
-ROOT = osp.abspath(osp.join(osp.dirname(__file__), "..", ".."))
+ROOT = osp.abspath(osp.join(osp.dirname(__file__), ".."))
 sys.path.insert(0, ROOT)
 
 from config import cfg as base_cfg  # noqa: E402

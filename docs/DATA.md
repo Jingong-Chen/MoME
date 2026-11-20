@@ -29,7 +29,7 @@ data/
   tiny-imagenet-200/
 ```
 
-## Where each comes from
+## Sources
 
 | Dataset | Source |
 |:---|:---|
@@ -60,7 +60,7 @@ Every model starts from the ViT-B/16 weight TransReID uses, `jx_vit_base_p16_224
 It is not redistributed here. Download it from the TransReID repository or from timm and put it at
 the repository root, or point `MODEL.PRETRAIN_PATH` at it.
 
-## How a deletion request is formed
+## Forming a deletion request
 
 `datasets/make_dataloader_mome.py` splits the training identities, not the images. With
 `MOME.FORGET_ID_FRAC 0.5` half the identities are deleted; `MOME.DR_K 4` keeps four images of each

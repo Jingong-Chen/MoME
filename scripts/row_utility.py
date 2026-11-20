@@ -17,7 +17,7 @@ import sys
 
 import torch
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import cfg                                  # noqa: E402
 from datasets import make_dataloader                    # noqa: E402
 from model import make_model                            # noqa: E402

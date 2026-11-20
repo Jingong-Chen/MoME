@@ -1,6 +1,8 @@
+#!/usr/bin/env bash
 # One VeRi-776 deletion split: the two retrain families, the core, the Core-only control and the
-# consolidated Full payload. Copied verbatim from repro/zlt_families.sh and the train_veri() of
-# repro/xref_band.sh, with MOME.SPLIT_SEED as the only change.
+# consolidated Full payload. The core recipe is the one that trained the deployed core and the
+# retrain family is the train_veri() of scripts/repro/xref_band.sh, with MOME.SPLIT_SEED as the
+# only change.
 #
 # The reference structure differs from Market. Per the audit the VeRi attack references are
 # kmix_s{789,1024} plus xref_s{2001,2002}, the band adds xref_s2003, and the teachers the core
@@ -11,8 +13,7 @@
 # only their final checkpoints, so the hyperparameters are not recoverable and guessing them is
 # what produced the wrong RegDB Fine-tune row.
 #
-#   usage: bash repro/splitvar/veri_all.sh <split_seed>
-#!/usr/bin/env bash
+#   usage: bash scripts/repro/veri_all.sh <split_seed>
 # Portable form of the script that produced the paper's numbers. It assumes the repository root as
 # the working directory and MOME_DATA pointing at the datasets; everything else is as it was run.
 set -o pipefail

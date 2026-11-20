@@ -10,7 +10,7 @@ margin fixed in advance by the spread of the reference family itself, so the nul
 is a difference larger than what separates one retrain from another.
 
 Usage:
-  python scripts/cvpr2027/attack_stats.py --target logs/xref_market/scores_mome_core_s42.npz \
+  python scripts/attack_stats.py --target logs/xref_market/scores_mome_core_s42.npz \
       --reference logs/xref_market/scores_retrain.npz \
       --ref_family logs/xref_market/scores_retrain.npz ... --attack rmia_lf --out stats.json
 """

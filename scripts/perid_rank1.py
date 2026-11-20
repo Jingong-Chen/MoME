@@ -5,12 +5,15 @@ The paper says a retrained model still ranks another image of the deleted identi
 identity's own number, so this prints both, using the same U construction and the same
 same-pid-same-camera exclusion as eval_partition.py.
 
-  python scripts/cvpr2027/perid_rank1.py --weight logs/kmix_market_retrain_s42/transformer_120.pth \
+  python scripts/perid_rank1.py --weight logs/kmix_market_retrain_s42/transformer_120.pth \
       --config_file configs/Market/vit_transreid_stride_mome_v3.yml -- <yacs overrides>
 """
 import argparse
 import os
+import sys
 from collections import defaultdict
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
 import torch

@@ -8,7 +8,7 @@ Point estimates are sample level, which is what the tables report; the intervals
 identities, since images of one identity are not independent. Both come from attack_stats.py so
 the definition matches the rest of the paper.
 
-Usage: python scripts/cvpr2027/leak_curve.py [--attack rmia_lf] [--n_boot 2000]
+Usage: python scripts/leak_curve.py [--attack rmia_lf] [--n_boot 2000]
 """
 import argparse
 import json

@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--seeds", default="42,123,456,789,1024", help="comma-separated seed list")
     parser.add_argument("--mome-prefix", default="logs/mome_v3_seed", help="MoME run dir prefix")
     parser.add_argument("--retrain-prefix", default="logs/retrain_seed", help="Retrain run dir prefix")
-    parser.add_argument("--v11-core-map", type=float, default=52.2, help="MoME v1.1 core mAP (%)")
+    parser.add_argument("--v11-core-map", type=float, default=52.2, help="MoME v1.1 core mAP (%%)")
     parser.add_argument("--alpha", type=float, default=0.05, help="significance level")
     parser.add_argument("--output", default="logs/stat_tests_summary.json", help="summary json output")
     return parser.parse_args()

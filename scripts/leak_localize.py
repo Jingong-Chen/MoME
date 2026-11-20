@@ -5,10 +5,10 @@ say what an audit recovers. This reports the operational form: rank the requeste
 their mean Forgetting-Rank, open as many as were kept, and count how many of those are the ones
 the core silently kept. It also reports where the worst-hidden kept identity sits in that ranking.
 
-Same artifacts and same split as scripts/cvpr2027/rho_power_curve.py, so the AUC column printed
+Same artifacts and same split as scripts/rho_power_curve.py, so the AUC column printed
 here must reproduce the table.
 
-Usage: python scripts/cvpr2027/leak_localize.py
+Usage: python scripts/leak_localize.py
 """
 import os
 import json
@@ -17,7 +17,7 @@ import sys
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
-sys.path.insert(0, ".")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datasets.make_dataloader_mome import _split_by_identity  # noqa: E402
 from datasets.market1501 import Market1501  # noqa: E402
 

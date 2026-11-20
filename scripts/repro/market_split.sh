@@ -1,15 +1,15 @@
+#!/usr/bin/env bash
 # One deletion split of Market-1501, end to end, so Tables 1 and 2 can carry a spread over splits
 # rather than over training seeds. Everything below is copied verbatim from the recipes that
 # produced the deployed split, with MOME.SPLIT_SEED as the only change.
 #
-#   usage: bash repro/splitvar/market_split.sh <split_seed>
+#   usage: bash scripts/repro/market_split.sh <split_seed>
 #
 # Per split this trains ten retrains and one core:
 #   kmix_s{42,123,456,789,1024}  the reference family; its five-seed mean is the Retrain row,
 #                                and four of its members are the core's distillation teachers
 #   xref_s{2001..2005}           the disjoint family the calibrated attacks are scored against
 #   core_s42                     the deployed core, at training seed 42 on every split
-#!/usr/bin/env bash
 # Portable form of the script that produced the paper's numbers. It assumes the repository root as
 # the working directory and MOME_DATA pointing at the datasets; everything else is as it was run.
 set -o pipefail

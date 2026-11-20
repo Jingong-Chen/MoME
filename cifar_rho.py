@@ -2,7 +2,7 @@
 """Forgetting-Rank statistic rho_U for the CIFAR-10 + ResNet-18 MoME setup.
 
 Non-ReID certificate that mirrors the ViT / AGW pipeline
-(scripts/cvpr2027/collect_lira_agw.py + scripts/cvpr2027/compute_rho.py):
+(scripts/collect_lira_agw.py + scripts/compute_rho.py):
 
   * Train N MoME "shadow" models and N retrain "shadow" models, each on a DIFFERENT
     retain/forget split indexed by `seed`.
@@ -33,7 +33,7 @@ is an independent Mersenne-Twister instance, so the split is fully determined by
 
 Resumable at every stage: existing checkpoints and existing .npy loss files are
 skipped. rho_U is (re)computed at the end by the identical, already-validated
-scripts/cvpr2027/compute_rho.py (with an in-process cross-check using the same
+scripts/compute_rho.py (with an in-process cross-check using the same
 mean_rank function).
 
 Launch (from the TransReID working dir, conda env reid_unlearning):

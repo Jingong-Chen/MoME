@@ -1,11 +1,11 @@
+#!/usr/bin/env bash
 # The eleven post-hoc rows of Table 1 on one Market deletion split.
 #
 # Every method starts from the full-data original, which does not depend on the split and is
 # therefore reused, and every hyperparameter below is read off the train_log.txt of the run that
 # produced the deployed row, so these are the same methods at the same settings on new identities.
 #
-#   usage: bash repro/splitvar/market_baselines.sh <split_seed>
-#!/usr/bin/env bash
+#   usage: bash scripts/repro/market_baselines.sh <split_seed>
 # Portable form of the script that produced the paper's numbers. It assumes the repository root as
 # the working directory and MOME_DATA pointing at the datasets; everything else is as it was run.
 set -o pipefail

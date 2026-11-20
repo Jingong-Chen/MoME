@@ -14,7 +14,7 @@ script scores four pools against the query non-member set:
 Entropy attack only, the same statistic the appendix tables report. Inference only.
 """
 import argparse, json, os, sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import torch
 import torchvision.transforms as T

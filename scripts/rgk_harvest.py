@@ -10,7 +10,7 @@ import json
 import os
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import torch
 from torch.utils.data import DataLoader
@@ -25,7 +25,7 @@ from model import make_model
 from utils.metrics import R1_mAP_eval
 from utils.parasitic_utils import set_parasitic_mode
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "scripts"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts"))
 from eval_regdb_cross_10trial import build_cfg, eval_once  # noqa: E402
 
 

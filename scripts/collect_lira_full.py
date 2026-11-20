@@ -19,7 +19,7 @@ import torch.nn.functional as F
 import torchvision.transforms as T
 from torch.utils.data import DataLoader
 
-ROOT = osp.abspath(osp.join(osp.dirname(__file__), "..", ".."))
+ROOT = osp.abspath(osp.join(osp.dirname(__file__), ".."))
 sys.path.insert(0, ROOT)
 from config import cfg as base_cfg
 from datasets.bases import ImageDataset

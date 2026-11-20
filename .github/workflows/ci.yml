@@ -44,3 +44,8 @@ jobs:
         run: pytest tests/ -q
       - name: Every entry point parses
         run: python -m compileall -q . -x '(build|\.git)'
+      - name: Every entry point starts
+        # Parsing is not starting. The scripts under scripts/ have to find the repository root on
+        # their own, and when they do not they die on an import before reaching main(), which
+        # compileall cannot see.
+        run: python tests/check_entrypoints.py
